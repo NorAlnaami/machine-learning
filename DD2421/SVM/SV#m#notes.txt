@@ -1,0 +1,45 @@
+Move the clusters around and change their sizes to make it easier or
+harder for the classifier to find a decent boundary. Pay attention
+to when the optimizer (minimize function) is not able to find a
+solution at all.
+2 figs (one close clusters, one further clusters)
+Clusters that are positioned far away from each other can easier be linearly seperated/classified since they have a higher margin which is confidence in our classification.
+
+2 figs (one with bigger size, and one with smaller size)
+CHECK!!!
+Clusters with bigger size will have a bigger margin because of the Gaussian distribution
+The minimize function cannot find a solution when the dataset is too noisy and thus no alphas can be found .
+
+
+
+
+Assignment 2. Implement the two non-linear kernels. You should be able to classify
+very hard data sets with these.
+The non-linear kernels polynomial and RBF kernel can classify data that can otherwise not be classified by linear kernel since some of the points will be misclassified.
+The non-linear kernels have parameters; explore how they influence
+the decision boundary. Reason about this in terms of the biasvariance
+trade-off.
+The parameter p in polynomial kernel changes the degree of the polynomial. The higher the degree is,
+the higher the variance is so the more overfit the decision boundary is. The smaller the degree p is,
+the higher the bias is.
+4 figs (Polynomial, p=2 , p=3 RBF sigma = small sigma = large)
+less p less variance High p high variance
+high bias –high sigma High variance –Low Sigma
+The parameter sigma in RBF define the smoothness of the curve, a decrease in the sigma, the higher
+bias is (more supportvectors and slack variables). The larger the sigma is, the higher variance the model has. Support vectors increase when sigma is small. Decrease sigma, moves towards nearest neighbour classifier
+
+
+
+Explore the role of the slack parameter C. What happens for very large/small values?
+3 figs( C= 0.1 C = 1 C= 1000 )
+Large C has a narrow margin, we don´t allow for mistakes.
+Small C has a large margin which means we have more points in the wrong side of the margin so the
+margin is soft and not strict. Meaning we have more mistakes or slack variables.
+The smaller the c becomes, the softer the margin becomes allowing for more slack variables (mistakes
+)
+Imagine that you are given data that is not easily separable. When
+should you opt for more slack rather than going for a more complex
+model (kernel) and vice versa?
+It´s all about a trade-off between bias and variance and how new unlabeled data or test data can be
+classified in a model with high bias or variance. We need to find the in-between which gives us the
+lowest classification error for the model.
